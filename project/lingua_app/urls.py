@@ -10,6 +10,9 @@ from .views import (
     FlashcardDetailView,
     SubscriptionCreateView,
     SubscriptionDeleteView,
+    tutor_login,  # Import tutor_login view
+    student_login,  # Import student_login view
+    signup,
 )
 
 urlpatterns = [
@@ -22,4 +25,8 @@ urlpatterns = [
     path('flashcards/<int:pk>/', FlashcardDetailView.as_view(), name='flashcard_detail'),
     path('subscriptions/create/', SubscriptionCreateView.as_view(), name='subscription_create'),
     path('subscriptions/<int:pk>/delete/', SubscriptionDeleteView.as_view(), name='subscription_delete'),
+    path('tutor/login/', tutor_login, name='tutor_login'),  # Add tutor login path
+    path('student/login/', student_login, name='student_login'),  # Add student login path
+    path('signup/', signup, name='signup'),
+
 ]

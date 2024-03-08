@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect
 from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView
 from .models import Tutor, Student, Flashcard, Subscription
+from .forms import TutorLoginForm, StudentLoginForm, SignupForm
 
 def home(request):
     return render(request, 'index.html')
@@ -48,3 +49,54 @@ class SubscriptionDeleteView(DeleteView):
     model = Subscription
     template_name = 'subscription_confirm_delete.html'
     success_url = '/subscriptions/'  # Redirect URL after deletion
+
+def tutor_login(request):
+    if request.method == 'POST':
+        form = TutorLoginForm(request, request.POST)
+        if form.is_valid():
+            username = form.cleaned_data.get('username')
+            password = form.cleaned_data.get('password')
+            user = authenticate(username=username, password=password)
+            if user is not None:
+                login(request, user)
+                return redirect('tutor_dashboard')  # Replace 'tutor_dashboard' with the URL name of tutor dashboard
+            else:
+                messages.error(request, 'Invalid username or password.')
+    else:
+        form = TutorLoginForm()
+    return render(request, 'tutor_login.html', {'form': form})
+
+def student_login(request):
+    if request.method == 'POST':
+        form = StudentLoginForm(request, request.POST)
+        if form.is_valid():
+            username = form.cleaned_data.get('username')
+            password = form.cleaned_data.get('password')
+            user = authenticate(username=username, password=password)
+            if user is not None:
+                login(request, user)
+                return redirect('student_dashboard')  # Replace 'student_dashboard' with the URL name of student dashboard
+            else:
+                messages.error(request, 'Invalid username or password.')
+    else:
+        form = StudentLoginForm()
+    return render(request, 'student_login.html', {'form': form})
+
+def signup(request):
+    if request.method == 'POST':
+        form = SignupForm(request.POST)
+        if form.is_valid():
+            user = form.save(commit=False)
+            role = form.cleaned_data['role']
+            user.save()
+            if role == 'tutor':
+                # Create a Tutor instance if the role is 'tutor'
+                Tutor.objects.create(user=user)
+            elif role == 'student':
+                # Create a Student instance if the role is 'student'
+                Student.objects.create(user=user)
+            login(request, user)
+            return redirect('home')  # Redirect to home page after signup
+    else:
+        form = SignupForm()
+    return render(request, 'signup.html', {'form': form})

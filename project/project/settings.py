@@ -129,3 +129,7 @@ STATIC_URL = '/static/'
 STATICFILES_DIRS = [
     BASE_DIR / "static",
 ]
+
+CSRF_TRUSTED_ORIGINS = [
+    'https://8000-hackoversho-linguaconne-y0b0u7kf7ap.ws-us108.gitpod.io',
+]

@@ -12,25 +12,31 @@
             <div class="relative z-10">
                 <h2 class="text-3xl font-semibold text-center text-white mb-6">Join Us!</h2> 
 
-                <div class="flex items-center space-x-4 mb-4">
-                    <button class="role-option active bg-purple-500 text-white px-4 py-2 rounded-md focus:outline-none" data-role="student">Student</button>
-                    <button class="role-option bg-gray-600 text-white px-4 py-2 rounded-md focus:outline-none" onclick="location.href='tutor_signup.html'">Tutor</button>
-
-                </div>
-
-                <form class="space-y-6" id="signupForm"> 
+                <form class="space-y-6" id="signupForm" method="POST"> 
+                    {% csrf_token %}
                     <div class="flex flex-col">
-                        <label for="firstName" class="text-sm font-medium text-gray-300 mb-2">First Name</label>
-                        <input id="firstName" type="text" class="shadow-md px-4 py-3 focus:outline-none focus:ring-purple-500 focus:border-purple-500 rounded-lg w-full bg-gray-800 text-white" placeholder="Enter your first name">
+                        <label for="username" class="text-sm font-medium text-gray-300 mb-2">Username</label>
+                        <input id="username" name="username" type="text" class="shadow-md px-4 py-3 focus:outline-none focus:ring-purple-500 focus:border-purple-500 rounded-lg w-full bg-gray-800 text-white" placeholder="Enter your username">
                     </div>
                     <div class="flex flex-col">
-                        <label for="lastName" class="text-sm font-medium text-gray-300 mb-2">Last Name</label>
-                        <input id="lastName" type="text" class="shadow-md px-4 py-3 focus:outline-none focus:ring-purple-500 focus:border-purple-500 rounded-lg w-full bg-gray-800 text-white" placeholder="Enter your last name">
+                        <label for="password1" class="text-sm font-medium text-gray-300 mb-2">Password</label>
+                        <input id="password1" name="password1" type="password" class="shadow-md px-4 py-3 focus:outline-none focus:ring-purple-500 focus:border-purple-500 rounded-lg w-full bg-gray-800 text-white" placeholder="Enter your password">
+                    </div>
+                    <div class="flex flex-col">
+                        <label for="password2" class="text-sm font-medium text-gray-300 mb-2">Confirm Password</label>
+                        <input id="password2" name="password2" type="password" class="shadow-md px-4 py-3 focus:outline-none focus:ring-purple-500 focus:border-purple-500 rounded-lg w-full bg-gray-800 text-white" placeholder="Confirm your password">
+                    </div>
+                    <div class="flex flex-col">
+                        <label for="role" class="text-sm font-medium text-gray-300 mb-2">User Type</label>
+                        <select id="role" name="role" class="shadow-md px-4 py-3 focus:outline-none focus:ring-purple-500 focus:border-purple-500 rounded-lg w-full bg-gray-800 text-white">
+                            <option value="student">Student</option>
+                            <option value="tutor">Tutor</option>
+                        </select>
                     </div>
                     <button type="submit" class="w-full inline-flex items-center justify-center px-6 py-3 bg-purple-500 text-white font-semibold rounded-xl hover:bg-purple-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-purple-500">
                         Sign Up
                     </button>
-                </form>
+                </form> 
             </div>
             <div class="absolute inset-0 bg-gray-700 opacity-75"></div>
              <div class="absolute inset-0 box-shadow-purple-glow"></div> 
@@ -43,26 +49,5 @@
      }
         /* Styling for role-option buttons (add as needed) */
     </style> 
-
-    <script>
-        const roleOptions = document.querySelectorAll('.role-option');
-        const signupForm = document.getElementById('signupForm'); // Get a reference to the form
-
-        roleOptions.forEach(button => {
-            button.addEventListener('click', () => {
-                roleOptions.forEach(btn => btn.classList.remove('active'));
-                button.classList.add('active');
-
-                const selectedRole = button.dataset.role;
-                // Use selectedRole to show/hide relevant fields (example below)
-                if (selectedRole === 'tutor') {
-                    // Example: Show a 'Subjects' field 
-                    document.getElementById('subjectsField').style.display = 'block';
-                } else {
-                    document.getElementById('subjectsField').style.display = 'none';
-                }
-            });
-        });
-    </script>
 </body>
 </html>
