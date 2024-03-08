@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@latest/dist/tailwind.min.css" rel="stylesheet">
+    <title>Login</title>
+</head>
+<body>
+    <div class="flex items-center justify-center min-h-screen bg-gray-800">
+        <div class="bg-gray-700 p-10 rounded-xl shadow-lg w-full max-w-sm overflow-hidden relative">
+          <div class="relative z-10">
+            <h2 class="text-3xl font-semibold text-center text-white mb-6">Welcome Back!</h2>
+            <form class="space-y-6">
+              <div class="flex flex-col mb-4">
+                <label class="text-sm font-medium text-gray-300 mr-4">Login As:</label>
+                <div class="space-y-2">
+                  <div class="flex items-center">
+                    <input type="radio" id="student" name="role" value="student" class="text-purple-600 focus:ring-purple-500 h-5 w-5" checked>
+                    <label for="student" class="text-sm ml-2 text-gray-300">Student</label>
+                  </div>
+                  <div class="flex items-center">
+                    <input type="radio" id="teacher" name="role" value="teacher" class="text-purple-600 focus:ring-purple-500 h-5 w-5">
+                    <label for="teacher" class="text-sm ml-2 text-gray-300">Teacher</label>
+                  </div>
+                </div>
+              </div>
+              <div class="flex flex-col">
+                <label for="email" class="text-sm font-medium text-gray-300 mb-2">Email Address</label>
+                <input id="email" type="email" class="shadow-md px-4 py-3 focus:outline-none focus:ring-purple-500 focus:border-purple-500 rounded-lg w-full bg-gray-800 text-white" placeholder="you@example.com">
+              </div>
+              <div class="flex flex-col">
+                <label for="password" class="text-sm font-medium text-gray-300 mb-2">Password</label>
+                <input id="password" type="password" class="shadow-md px-4 py-3 focus:outline-none focus:ring-purple-500 focus:border-purple-500 rounded-lg w-full bg-gray-800 text-white" placeholder="••••••••">
+              </div>
+              <div class="flex items-center justify-between">
+                <div class="flex items-center">
+                  <input type="checkbox" class="text-purple-600 focus:ring-purple-500 h-5 w-5" id="remember">
+                  <label for="remember" class="text-sm ml-2 text-gray-300">Remember Me</label>
+                </div>
+                <a href="#" class="text-sm text-purple-600 hover:underline">Forgot Password?</a>
+              </div>
+              <button type="submit" class="w-full inline-flex items-center justify-center px-6 py-3 bg-purple-500 text-white font-semibold rounded-xl hover:bg-purple-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-purple-500">
+                Sign In
+              </button>
+            </form>
+          </div>
+          <div class="absolute inset-0 bg-gray-700 opacity-75"></div>
+          <div class="absolute inset-0 box-shadow-purple-glow"></div>
+        </div>
+      </div>
+      
+      <style>
+        .box-shadow-purple-glow {
+          box-shadow: 0 0 5px 1px rgba(128, 0, 128, 0.3);
+        }
+      </style>      
+</body>
+</html>

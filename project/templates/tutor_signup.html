@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@latest/dist/tailwind.min.css" rel="stylesheet">
+    <title>Tutor Sign Up</title>
+</head>
+<body>
+    <div class="flex items-center justify-center min-h-screen bg-gray-800">
+        <div class="bg-gray-700 p-10 rounded-xl shadow-lg w-full max-w-sm overflow-hidden relative">
+            <div class="relative z-10">
+                <h2 class="text-3xl font-semibold text-center text-white mb-6">Become a Tutor!</h2> 
+
+                <form class="space-y-6" id="tutorSignupForm"> 
+                    <div class="flex flex-col">
+                        <label for="subjects" class="text-sm font-medium text-gray-300 mb-2">Subjects</label>
+                        <input id="subjects" type="text" class="shadow-md px-4 py-3 focus:outline-none focus:ring-purple-500 focus:border-purple-500 rounded-lg w-full bg-gray-800 text-white" placeholder="Enter subjects you teach">
+                    </div>
+
+                    <button type="submit" class="w-full inline-flex items-center justify-center px-6 py-3 bg-purple-500 text-white font-semibold rounded-xl hover:bg-purple-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-purple-500">
+                        Sign Up as Tutor
+                    </button>
+                </form>
+            </div>
+            <div class="absolute inset-0 bg-gray-700 opacity-75"></div>
+             <div class="absolute inset-0 box-shadow-purple-glow"></div> 
+        </div>
+    </div>
+    
+    <style>
+     .box-shadow-purple-glow {
+      box-shadow: 0 0 5px 1px rgba(128, 0, 128, 0.3); 
+     }
+        /* Styling for role-option buttons (add as needed) */
+    </style> 
+
+    <script>
+        // JavaScript to handle tutor form submission (would need a backend route)
+    </script>
+</body>
+</html>
