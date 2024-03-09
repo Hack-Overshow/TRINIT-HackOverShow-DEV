@@ -27,7 +27,7 @@ def meeting_list(request):
     user = request.user
     meetings = Meeting.objects.filter(creator=user) 
 
-    return render(request, 'project/templates/meeting_list.html', {'meetings': meetings})
+    return render(request, 'onlinemeet/meeting_list.html', {'meetings': meetings})
 
 
 def call(request):
