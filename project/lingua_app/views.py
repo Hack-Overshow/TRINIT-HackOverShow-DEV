@@ -38,17 +38,17 @@ class FlashcardDetailView(DetailView):
 
 class SubscriptionCreateView(CreateView):
     model = Subscription
-    fields = ['student', 'tutor']  # Add more fields as needed
+    fields = ['student', 'tutor']   
     template_name = 'subscription_form.html'
 
     def form_valid(self, form):
-        # Perform any additional operations if needed
+         
         return super().form_valid(form)
 
 class SubscriptionDeleteView(DeleteView):
     model = Subscription
     template_name = 'subscription_confirm_delete.html'
-    success_url = '/subscriptions/'  # Redirect URL after deletion
+    success_url = '/subscriptions/'  # Redirect wala idhar
 
 def tutor_login(request):
     if request.method == 'POST':
@@ -59,7 +59,7 @@ def tutor_login(request):
             user = authenticate(username=username, password=password)
             if user is not None:
                 login(request, user)
-                return redirect('tutor_dashboard')  # Replace 'tutor_dashboard' with the URL name of tutor dashboard
+                return redirect('tutor_dashboard')  # dashboard ka url 
             else:
                 messages.error(request, 'Invalid username or password.')
     else:
@@ -75,7 +75,7 @@ def student_login(request):
             user = authenticate(username=username, password=password)
             if user is not None:
                 login(request, user)
-                return redirect('student_dashboard')  # Replace 'student_dashboard' with the URL name of student dashboard
+                return redirect('student_dashboard')  # student dashboard url
             else:
                 messages.error(request, 'Invalid username or password.')
     else:
@@ -90,13 +90,13 @@ def signup(request):
             role = form.cleaned_data['role']
             user.save()
             if role == 'tutor':
-                # Create a Tutor instance if the role is 'tutor'
+                 
                 Tutor.objects.create(user=user)
             elif role == 'student':
-                # Create a Student instance if the role is 'student'
+                
                 Student.objects.create(user=user)
             login(request, user)
-            return redirect('home')  # Redirect to home page after signup
+            return redirect('home')  # Redirect home after signup - udhar dashboard based on role
     else:
         form = SignupForm()
     return render(request, 'signup.html', {'form': form})
