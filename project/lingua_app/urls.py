@@ -1,5 +1,7 @@
 from django.contrib import admin
 from django.urls import path
+from . import views
+
 from .views import (
     home,
     TutorListView,
@@ -28,4 +30,5 @@ urlpatterns = [
     path('login/', login_page, name='login'),  # Updated path for login
     path('signup/', signup, name='signup'),
     path('call/', call, name='online'),
+    path('my-meetings/', views.meeting_list, name='meeting_list'),
 ]

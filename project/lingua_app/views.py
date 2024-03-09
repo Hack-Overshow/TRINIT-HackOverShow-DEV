@@ -1,10 +1,23 @@
+from django.urls import reverse
 from django.contrib.auth import authenticate, login
 from django.contrib import messages
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, HttpResponseRedirect
 from django.views.generic import ListView, DetailView, CreateView, DeleteView
 from .models import Tutor, Student, Flashcard, Subscription
 from .forms import SignupForm, LoginForm, MeetingCreateForm
 from django.contrib.auth.decorators import login_required
+
+def call_list(request):
+    form = MeetingCreateForm()
+    if request.method == 'POST':
+        form = MeetingCreateForm(request.POST)
+        if form.is_valid():
+                    fm = form.save(commit=False)
+                    fm.creator = request.user
+                    fm.save()
+                    return HttpResponseRedirect(reverse('meeting_list'))
+
+    return render(request, 'onlinemeet/call.html', {'form': form})
 
 
 @login_required()  # to ensure only logged in user can view this page.

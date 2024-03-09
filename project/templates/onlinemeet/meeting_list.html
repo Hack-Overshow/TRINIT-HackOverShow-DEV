@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>All Meetings</title>
+    <style>
+        table {
+            border-collapse: collapse;
+            width: 80%; 
+            margin: 20px auto; /* Center the table */
+        }
+        th, td {
+            border: 1px solid black;
+            padding: 8px;
+            text-align: left;
+        }
+    </style>
+</head>
+<body>
+    <h3>All Meetings created by: {{request.user | upper}}</h3>
+
+    <table>
+    <thead>
+    <tr>
+    <th>Creator</th>
+    <th>Title</th>
+    <th>Created</th>
+    <th>Starting Date & Time</th>
+    </tr>
+    </thead>
+    {% for meeting in meetings %}
+    <tbody>
+    <tr>
+    <td>{{meeting.creator}}</td>
+    <td>{{meeting.title_of_meeting}}</td>
+    <td>{{meeting.created}}</td>
+    <td>{{meeting.starting_date_time}}</td>
+    </tr>
+    </tbody>
+    {% endfor %}
+    </table>
+</body>
+</html>
