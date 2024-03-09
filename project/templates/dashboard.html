@@ -1,129 +1,360 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link
-      href="https://cdn.jsdelivr.net/npm/tailwindcss@latest/dist/tailwind.min.css"
-      rel="stylesheet"
-    />
-    <title>Dashboard</title>
-  </head>
-  <body>
-    <div class="flex min-h-screen bg-gray-800">
-      <div class="bg-gray-700 p-4 rounded-r-xl shadow-lg">
-        <div class="mt-24 space-y-4">
-          <div class="mb-12"></div>
-          <a
-            href="#"
-            class="flex items-center text-purple-500 hover:text-purple-400"
-          >
-            <svg
-              class="w-6 h-6 mr-3"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="2"
-                d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"
-              ></path>
-            </svg>
-            <span class="text-sm font-medium">Scheduled Lectures</span>
-          </a>
-          <a
-            href="#"
-            class="flex items-center text-gray-300 hover:text-purple-400"
-          >
-            <svg
-              class="w-6 h-6 mr-3"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="2"
-                d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"
-              ></path>
-            </svg>
-            <span class="text-sm font-medium">List of Tutors</span>
-          </a>
-          <a
-            href="#"
-            class="flex items-center text-gray-300 hover:text-purple-400"
-          >
-            <svg
-              class="w-6 h-6 mr-3"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="2"
-                d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01"
-              ></path>
-            </svg>
-            <span class="text-sm font-medium">Lesson Progress</span>
-          </a>
-          <a
-            href="#"
-            class="flex items-center text-gray-300 hover:text-purple-400"
-          >
-            <svg
-              class="w-6 h-6 mr-3"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="2"
-                d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"
-              ></path>
-            </svg>
-            <span class="text-sm font-medium">Exercises</span>
-          </a>
-        </div>
-      </div>
+<head>
+   <meta charset="UTF-8"/>
+   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+   <link
+       href="https://cdn.jsdelivr.net/npm/tailwindcss@latest/dist/tailwind.min.css"
+       rel="stylesheet"/>
+   <title>Dashboard</title>
+   <style>
+       .logo-container {
+           margin-top: 1rem;
+           margin-left: auto;
+           margin-right: auto;
+           width: fit-content;
+       }
 
-      <div class="flex-1 p-6 overflow-y-auto">
-        <div class="flex justify-between items-center mb-6">
-          <h2 class="text-2xl font-semibold text-white">Dashboard</h2>
-          <div class="relative">
-            <a
-              href="/profile"
-              class="w-10 h-10 bg-purple-500 rounded-full flex items-center justify-center text-white"
-            >
-              <svg
-                class="w-6 h-6"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
-                  d="M5.121 17.804A13.937 13.937 0 0112 16c2.5 0 4.847.655 6.879 1.804M15 10a3 3 0 11-6 0 3 3 0 016 0zm6 2a9 9 0 11-18 0 9 9 0 0118 0z"
-                ></path>
-              </svg>
-            </a>
-          </div>
-        </div>
-        <div class="bg-gray-700 p-6 rounded-xl shadow-lg"></div>
-      </div>
-    </div>
-  </body>
+       .fade-in {
+           opacity: 0;
+           animation: fadeInAnimation 1s ease-in forwards;
+       }
+
+       @keyframes fadeInAnimation {
+           from {
+               opacity: 0;
+               transform: scale(0.9);
+           }
+           to {
+               opacity: 1;
+               transform: scale(1);
+           }
+       }
+
+       .scheduled-lectures img {
+           width: 24px;
+           height: 24px;
+       }
+
+       .clickable {
+           cursor: pointer;
+       }
+
+       .progress-bar {
+           position: relative;
+           height: 1.5rem;
+           background-color: #1a202c;
+           border-radius: 0.5rem;
+       }
+
+       .progress-bar-fill {
+           position: absolute;
+           height: 100%;
+           border-radius: 0.5rem;
+           background-color: #6b46c1;
+       }
+
+       .progress-label {
+           position: absolute;
+           top: 50%;
+           left: 50%;
+           transform: translate(-50%, -50%);
+           color: #ffffff;
+           font-size: 0.875rem;
+       }
+   </style>
+</head>
+<body>
+<div class="flex min-h-screen bg-gray-800">
+   <div class="bg-gray-700 p-4 rounded-r-xl shadow-lg">
+       <div class="logo-container flex flex-col items-center">
+           <a href="#" id="logoLink">
+               <img
+                   src="./static/image/lingua.png"
+                   alt="Logo"
+                   class="w-24 h-24 rounded-full border-2 border-purple-500"
+               />
+           </a>
+           <span class="text-purple-500 font-semibold mt-2">LinguaConnect</span>
+       </div>
+       <div class="mt-16 space-y-4">
+           <a
+               href="#"
+               id="scheduledLecturesLink"
+               class="flex items-center text-gray-300 hover:text-purple-400"
+           >
+               <svg
+                   class="w-6 h-6 mr-3"
+                   fill="none"
+                   stroke="currentColor"
+                   viewBox="0 0 24 24"
+                   xmlns="http://www.w3.org/2000/svg"
+               >
+                   <path
+                       stroke-linecap="round"
+                       stroke-linejoin="round"
+                       stroke-width="2"
+                       d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"
+                   ></path>
+               </svg>
+               <span class="text-sm font-medium">Scheduled Classes</span>
+           </a>
+           <a href="#" id="tutorsLink" class="flex items-center text-gray-300 hover:text-purple-400">
+               <svg class="w-6 h-6 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"></path>
+               </svg>
+               <span class="text-sm font-medium">List of Tutors</span>
+           </a>
+           <a
+               href="#"
+               id="lessonProgressLink"
+               class="flex items-center text-gray-300 hover:text-purple-400 clickable"
+           >
+               <svg
+                   class="w-6 h-6 mr-3"
+                   fill="none"
+                   stroke="currentColor"
+                   viewBox="0 0 24 24"
+                   xmlns="http://www.w3.org/2000/svg"
+               >
+                   <path
+                       stroke-linecap="round"
+                       stroke-linejoin="round"
+                       stroke-width="2"
+                       d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01"
+                   ></path>
+               </svg>
+               <span class="text-sm font-medium">Lesson Progress</span>
+           </a>
+           <a
+               href="#"
+               class="flex items-center text-gray-300 hover:text-purple-400"
+           >
+               <svg
+                   class="w-6 h-6 mr-3"
+                   fill="none"
+                   stroke="currentColor"
+                   viewBox="0 0 24 24"
+                   xmlns="http://www.w3.org/2000/svg"
+               >
+                   <path
+                       stroke-linecap="round"
+                       stroke-linejoin="round"
+                       stroke-width="2"
+                       d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"
+                   ></path>
+               </svg>
+               <span class="text-sm font-medium">Exercises</span>
+           </a>
+       </div>
+   </div>
+
+   <div class="flex-1 p-6 overflow-y-auto relative">
+       <div class="absolute top-0 right-0 mr-6 mt-6 flex flex-col items-center clickable">
+           <a href="/profile">
+               <div class="w-10 h-10 bg-purple-500 rounded-full flex items-center justify-center text-white">
+                   <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5.121 17.804A13.937 13.937 0 0112 16c2.5 0 4.847.655 6.879 1.804M15 10a3 3 0 11-6 0 3 3 0 016 0zm6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+               </div>
+               <span class="text-sm text-gray-300 mt-1 mr-2">Profile</span>
+           </a>
+       </div>
+       <div id="dashboard">
+           <h2 class="text-3xl font-semibold text-white fade-in">Dashboard</h2>
+           <p class="text-lg text-gray-300 mt-2 fade-in">Hello User! 👋</p>
+           <div id="recent" class="mt-8 fade-in">
+               <h3 class="text-lg font-semibold text-white mb-4">Recent</h3>
+               <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                   <div class="bg-gray-700 p-6 rounded-lg shadow-lg">
+                       <div class="flex flex-col space-y-4">
+                           <div>
+                               <h4 class="text-lg font-semibold text-white">
+                                   French Class
+                               </h4>
+                           </div>
+                           <div>
+                               <p class="text-sm text-gray-300">Teacher: Marie Dubois</p>
+                           </div>
+                           <div>
+                               <p class="text-sm text-gray-300">Language: French</p>
+                           </div>
+                           <div>
+                               <p class="text-sm text-gray-300">Attended on: 05/06/2023</p>
+                           </div>
+                       </div>
+                   </div>
+                   <div class="bg-gray-700 p-6 rounded-lg shadow-lg">
+                       <div class="flex flex-col space-y-4">
+                           <div>
+                               <h4 class="text-lg font-semibold text-white">
+                                   Spanish Class
+                               </h4>
+                           </div>
+                           <div>
+                               <p class="text-sm text-gray-300">Teacher: Juan Garcia</p>
+                           </div>
+                           <div>
+                               <p class="text-sm text-gray-300">Language: Spanish</p>
+                           </div>
+                           <div>
+                               <p class="text-sm text-gray-300">Attended on: 03/06/2023</p>
+                           </div>
+                       </div>
+                   </div>
+               </div>
+           </div>
+       </div>
+       <div id="scheduled-lectures" class="hidden mt-8">
+           <h3 class="text-lg font-semibold text-white mb-4">
+               Scheduled Classes
+           </h3>
+           <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+               <div class="bg-gray-700 p-6 rounded-lg shadow-lg">
+                   <div class="flex flex-col space-y-4">
+                       <div>
+                           <h4 class="text-lg font-semibold text-white">
+                               John Doe English Class
+                           </h4>
+                       </div>
+                       <div>
+                           <p class="text-sm text-gray-300">Teacher: John Doe</p>
+                       </div>
+                       <div>
+                           <p class="text-sm text-gray-300">Language: English</p>
+                       </div>
+                       <div>
+                           <p class="text-sm text-gray-300">10:00 AM - 11:30 AM</p>
+                       </div>
+                       <div>
+                           <a
+                               href="/attend"
+                               class="inline-block bg-purple-500 hover:bg-purple-600 text-white font-semibold py-2 px-4 rounded"
+                           >Attend</a
+                           >
+                       </div>
+                   </div>
+               </div>
+           </div>
+       </div>
+       <div id="my-tutors" class="hidden mt-8">
+           <h3 class="text-lg font-semibold text-white mb-4">Your Tutors</h3>
+           <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
+               <div class="bg-gray-700 p-6 rounded-lg shadow-lg">
+                   <div class="flex flex-col space-y-4">
+                       <div>
+                           <h4 class="text-lg font-semibold text-white">John Doe</h4>
+                       </div>
+                       <div>
+                           <p class="text-sm text-gray-300">Language: English</p>
+                       </div>
+                       <div>
+                           <a href="/tutor_detail.html" class="inline-flex items-center text-purple-500 hover:text-purple-600">
+                               <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"></path>
+                               </svg>
+                               Tutor Details
+                           </a>
+                       </div>
+                   </div>
+               </div>
+           </div>
+       </div>
+       <div id="lesson-progress" class="hidden mt-20">
+           <h3 class="text-lg font-semibold text-white mb-4">Lesson Progress</h3>
+           <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
+               <div class="bg-gray-700 p-6 rounded-lg shadow-lg">
+                   <div class="flex flex-col space-y-4">
+                       <div>
+                           <h4 class="text-lg font-semibold text-white">French Class</h4>
+                       </div>
+                       <div>
+                           <p class="text-sm text-gray-300">Teacher: Marie Dubois</p>
+                       </div>
+                       <div>
+                           <p class="text-sm text-gray-300">Language: French</p>
+                       </div>
+                       <div class="progress-bar">
+                           <div class="progress-bar-fill" style="width: 75%;"></div>
+                           <span class="progress-label">75% Completed</span>
+                       </div>
+                   </div>
+               </div>
+               <div class="bg-gray-700 p-6 rounded-lg shadow-lg">
+                   <div class="flex flex-col space-y-4">
+                       <div>
+                           <h4 class="text-lg font-semibold text-white">Spanish Class</h4>
+                       </div>
+                       <div>
+                           <p class="text-sm text-gray-300">Teacher: Juan Garcia</p>
+                       </div>
+                       <div>
+                           <p class="text-sm text-gray-300">Language: Spanish</p>
+                       </div>
+                       <div class="progress-bar">
+                           <div class="progress-bar-fill" style="width: 60%;"></div>
+                           <span class="progress-label">60% Completed</span>
+                       </div>
+                   </div>
+               </div>
+               <div class="bg-gray-700 p-6 rounded-lg shadow-lg">
+                   <div class="flex flex-col space-y-4">
+                       <div>
+                           <h4 class="text-lg font-semibold text-white">German Class</h4>
+                       </div>
+                       <div>
+                           <p class="text-sm text-gray-300">Teacher: Hans Müller</p>
+                       </div>
+                       <div>
+                           <p class="text-sm text-gray-300">Language: German</p>
+                       </div>
+                       <div class="progress-bar">
+                           <div class="progress-bar-fill" style="width: 40%;"></div>
+                           <span class="progress-label">40% Completed</span>
+                       </div>
+                   </div>
+               </div>
+           </div>
+       </div>
+   </div>
+</div>
+
+<script>
+   const logoLink = document.getElementById('logoLink');
+   const dashboard = document.getElementById('dashboard');
+   const scheduledLecturesLink = document.getElementById('scheduledLecturesLink');
+   const scheduledLectures = document.getElementById('scheduled-lectures');
+   const tutorsLink = document.getElementById('tutorsLink');
+   const myTutors = document.getElementById('my-tutors');
+   const lessonProgressLink = document.getElementById('lessonProgressLink');
+   const lessonProgress = document.getElementById('lesson-progress');
+
+   logoLink.addEventListener('click', () => {
+       dashboard.classList.remove('hidden');
+       scheduledLectures.classList.add('hidden');
+       myTutors.classList.add('hidden');
+       lessonProgress.classList.add('hidden');
+   });
+
+   scheduledLecturesLink.addEventListener('click', () => {
+       dashboard.classList.add('hidden');
+       scheduledLectures.classList.remove('hidden');
+       myTutors.classList.add('hidden');
+       lessonProgress.classList.add('hidden');
+   });
+
+   tutorsLink.addEventListener('click', () => {
+       dashboard.classList.add('hidden');
+       scheduledLectures.classList.add('hidden');
+       myTutors.classList.remove('hidden');
+       lessonProgress.classList.add('hidden');
+   });
+
+   lessonProgressLink.addEventListener('click', () => {
+       dashboard.classList.add('hidden');
+       scheduledLectures.classList.add('hidden');
+       myTutors.classList.add('hidden');
+       lessonProgress.classList.remove('hidden');
+   });
+</script>
+</body>
 </html>
