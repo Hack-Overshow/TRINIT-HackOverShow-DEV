@@ -3,7 +3,23 @@ from django.contrib import messages
 from django.shortcuts import render, redirect
 from django.views.generic import ListView, DetailView, CreateView, DeleteView
 from .models import Tutor, Student, Flashcard, Subscription
-from .forms import SignupForm, LoginForm
+from .forms import SignupForm, LoginForm, MeetingCreateForm
+from django.contrib.auth.decorators import login_required
+
+
+@login_required()  # to ensure only logged in user can view this page.
+def meeting_list(request):
+    """We are going to filter the meeting, so only the registered user can view
+    the page, and then all meeting created by such individual will be displayed"""
+    user = request.user
+    meetings = Meeting.objects.filter(creator=user) 
+
+    return render(request, 'project/templates/meeting_list.html', {'meetings': meetings})
+
+
+def call(request):
+    form = MeetingCreateForm()
+    return render(request, 'project/templates/call.html', {'form': form})
 
 def home(request):
     return render(request, 'index.html')
