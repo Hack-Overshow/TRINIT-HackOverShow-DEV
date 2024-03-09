@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Profile</title>
+    <style>
+        /* Add your CSS styles here */
+        .profile-header {
+            text-align: center; 
+            margin-bottom: 20px;
+        }
+        .profile-picture {
+            width: 100px;
+            height: 100px; 
+            border-radius: 50%;
+        } 
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="profile-header">
+            <img src="profile_picture.jpg" alt="Profile Picture" class="profile-picture">
+            <h2 class="username">Emily Johnson</h2>
+        </div>
+
+        <div class="profile-sections">
+            <section class="languages-learned">
+                <h3>Languages Learning</h3>
+                <ul class="language-list">
+                    <li>Spanish (Intermediate)</li>
+                    <li>French (Beginner)</li>
+                </ul>
+            </section>
+
+            <section class="enrollment">
+                <h3>Enrolled Since</h3>
+                <p>January 12, 2023</p> 
+            </section>
+
+            <section class="contact">
+                <h3>Contact</h3>
+                <p>Email: emily.johnson@email.com</p>
+            </section>
+
+        </div>
+    </div>
+
+    <script>
+        // Simplified - Assumes you have a way to get the current user's ID 
+        const currentUserId = 123; 
+        const urlParams = new URLSearchParams(window.location.search);
+        const profileUserId = urlParams.get('userId');
+
+        // Redirect if viewing someone else's profile
+        if (profileUserId && profileUserId !== currentUserId) {
+            window.location.href = 'profile.html';   // Redirect to own profile 
+        }
+    </script> </body>
+</html>

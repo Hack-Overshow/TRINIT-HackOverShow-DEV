@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@latest/dist/tailwind.min.css" rel="stylesheet">
+    <title>Subscription Plans</title>
+</head>
+<body class="bg-gray-800 text-gray-300 flex items-center justify-center min-h-screen">
+    <section class="container mx-auto"> <h1 class="text-3xl font-semibold text-center text-white mb-8">Upgrade Your Learning Experience</h1> 
+
+        <div class="plan-grid bg-gray-700 p-10 rounded-xl shadow-lg max-w-sm overflow-hidden relative">
+            <div class="relative z-10 flex flex-col space-y-6"> 
+                <div class="plan-card basic bg-gray-800 rounded-md p-6">
+                    <h3 class="text-xl font-medium mb-4">Basic</h3>
+                    <p class="text-2xl font-bold mb-3">$15/month</p>
+                    <ul class="features text-sm mb-5">
+                        <li>Access to Core Lessons</li>
+                        <li>Weekly Quizzes</li>
+                        <li>Limited Flashcard Sets</li>
+                    </ul>
+                    <button class="w-full inline-flex items-center justify-center px-6 py-3 bg-purple-500 text-white font-semibold rounded-xl hover:bg-purple-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-purple-500">
+                        Start Free Trial
+                    </button> 
+                </div>
+                <div class="plan-card premium bg-gray-800 rounded-md p-6">
+                    <h3 class="text-xl font-medium mb-4">Premium</h3>
+                    <p class="text-2xl font-bold mb-3">$30/month</p>
+                    <ul class="features text-sm mb-5">
+                        <li>All Basic Features</li> 
+                        <li>Customizable Flashcards</li>
+                        <li>Personalized Study Plans</li>
+                        <li>Tutoring Sessions</li> 
+                    </ul>
+                    <button class="w-full inline-flex items-center justify-center px-6 py-3 bg-purple-500 text-white font-semibold rounded-xl hover:bg-purple-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-purple-500">
+                        Subscribe Now
+                    </button> 
+                </div>
+            </div>
+            <div class="absolute inset-0 bg-gray-700 opacity-50"></div> 
+            <div class="absolute inset-0 box-shadow-purple-glow"></div> 
+        </div> 
+    </section>
+</body>
+</html>

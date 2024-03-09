@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@latest/dist/tailwind.min.css" rel="stylesheet">
+    <title>Student Profile</title>
+    <style>
+        /* Your previous styles ... */
+
+        /* Flashcard Styles */
+        .flashcard-list {
+            list-style: none;
+            padding: 0;
+        }
+        .flashcard-preview {
+            border: 1px solid lightgray;
+            padding: 15px;
+            margin-bottom: 10px;
+            background-color: #fff;
+            box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        .flashcard-preview .front { 
+            font-size: 18px; 
+        }
+    </style>
+</head>
+<body>
+    <div class="container"> 
+        <div class="flashcards-section"> 
+            <h2>My Flashcard Decks</h2>
+            <div id="flashcardListView">
+                <h3>Flashcards in Deck: Spanish Basics</h3> 
+                <ul class="flashcard-list"> 
+                </ul>
+            </div>
+        </div>    
+    </div>
+
+    <script>
+    // Sample Flashcard Data 
+    const sampleFlashcards = [
+        { front: "¿Cómo estás?", back: "How are you? (Informal)" },
+        { front: "Buenos días", back: "Good morning" },
+        { front: "Por favor", back: "Please" }
+    ];
+
+    // Flashcard List Rendering
+    function renderFlashcardList(flashcards) {
+        const listContainer = document.querySelector('#flashcardListView .flashcard-list'); 
+        listContainer.innerHTML = ''; // Reset the list
+
+        flashcards.forEach(card => {
+            const listItem = document.createElement('li');
+            listItem.classList.add('flashcard-preview');
+
+            const frontDiv = document.createElement('div');
+            frontDiv.classList.add('front');
+            frontDiv.textContent = card.front;
+
+            listItem.appendChild(frontDiv);
+            listContainer.appendChild(listItem);
+        });
+    }
+
+    // Initial Rendering 
+    renderFlashcardList(sampleFlashcards); 
+    </script> 
+</body>
+</html>

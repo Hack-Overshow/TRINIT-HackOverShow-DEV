@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@latest/dist/tailwind.min.css" rel="stylesheet">
+    <title>Student Profile</title>
+    <style>
+        /* Your previous styles ... */
+
+        /* Flashcard Styles */
+        .flashcard {
+            border: 1px solid lightgray;
+            padding: 20px;
+            margin-bottom: 15px;
+            text-align: center;
+            background-color: #fff; 
+            box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .flashcard-front, .flashcard-back {
+             font-size: 20px; 
+        }
+
+        .actions { 
+            margin-top: 10px; 
+        }
+    </style>
+</head>
+<body>
+    <div class="container"> 
+        <div class="flashcards-section"> 
+            <h2>My Flashcard Decks</h2> 
+            <div id="flashcardDetailView" style="display: none;"> 
+            </div>
+        </div>    
+    </div>
+
+    <script>
+    // Sample Flashcard Data 
+    const sampleFlashcard = { 
+        front: "¿Cómo estás?", 
+        back: "How are you? (Informal)" 
+    };
+
+    // Detailed View Rendering 
+    function showFlashcardDetail(flashcard) {
+        const detailView = document.getElementById('flashcardDetailView');
+        detailView.innerHTML = ''; // Clear previous content
+
+        const flashcardElement = document.createElement('div');
+        flashcardElement.classList.add('flashcard');
+
+        const frontDiv = document.createElement('div');
+        frontDiv.classList.add('flashcard-front');
+        frontDiv.textContent = flashcard.front;
+
+        const backDiv = document.createElement('div');
+        backDiv.classList.add('flashcard-back');
+        backDiv.textContent = flashcard.back;
+        backDiv.style.display = 'none'; // Initially hidden
+
+        const showAnswerButton = document.createElement('button');
+        showAnswerButton.textContent = 'Show Answer';
+        showAnswerButton.addEventListener('click', () => {
+            backDiv.style.display = 'block'; 
+        });
+
+        flashcardElement.appendChild(frontDiv);
+        flashcardElement.appendChild(backDiv);
+        flashcardElement.appendChild(showAnswerButton);
+
+        detailView.appendChild(flashcardElement);
+        detailView.style.display = 'block'; 
+    }
+
+    // Initial Display (for demonstration)
+    showFlashcardDetail(sampleFlashcard); 
+    </script> 
+</body>
+</html>
