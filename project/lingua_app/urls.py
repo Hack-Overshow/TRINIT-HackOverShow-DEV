@@ -14,7 +14,8 @@ from .views import (
     SubscriptionDeleteView,
     login_page,  # Updated import
     signup,
-    call
+    call,
+    meeting_list
 )
 
 urlpatterns = [
@@ -31,4 +32,5 @@ urlpatterns = [
     path('signup/', signup, name='signup'),
     path('call/', call, name='online'),
     path('my-meetings/', views.meeting_list, name='meeting_list'),
+    path('live-meeting/<unique_meeting_name>/', views.meeting, name='meeting'),
 ]

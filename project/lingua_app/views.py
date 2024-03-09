@@ -1,13 +1,13 @@
 from django.urls import reverse
 from django.contrib.auth import authenticate, login
 from django.contrib import messages
-from django.shortcuts import render, redirect, HttpResponseRedirect
+from django.shortcuts import render, redirect, HttpResponseRedirect, get_object_or_404
 from django.views.generic import ListView, DetailView, CreateView, DeleteView
-from .models import Tutor, Student, Flashcard, Subscription
+from .models import Tutor, Student, Flashcard, Subscription, Meeting
 from .forms import SignupForm, LoginForm, MeetingCreateForm
 from django.contrib.auth.decorators import login_required
 
-def call_list(request):
+def call(request):
     form = MeetingCreateForm()
     if request.method == 'POST':
         form = MeetingCreateForm(request.POST)
@@ -19,6 +19,11 @@ def call_list(request):
 
     return render(request, 'onlinemeet/call.html', {'form': form})
 
+def meeting(request, unique_meeting_name):
+    meeting = get_object_or_404(Meeting, unique_meeting_name=unique_meeting_name)
+    return render(request, 'onlinemeet/meeting_page.html', {'meeting': meeting})
+
+
 
 @login_required()  # to ensure only logged in user can view this page.
 def meeting_list(request):
@@ -28,11 +33,6 @@ def meeting_list(request):
     meetings = Meeting.objects.filter(creator=user) 
 
     return render(request, 'onlinemeet/meeting_list.html', {'meetings': meetings})
-
-
-def call(request):
-    form = MeetingCreateForm()
-    return render(request, 'onlinemeet/call.html', {'form': form})
 
 def home(request):
     return render(request, 'index.html')
