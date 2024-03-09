@@ -12,6 +12,7 @@ from .views import (
     SubscriptionDeleteView,
     login_page,  # Updated import
     signup,
+    call
 )
 
 urlpatterns = [
@@ -26,4 +27,5 @@ urlpatterns = [
     path('subscriptions/<int:pk>/delete/', SubscriptionDeleteView.as_view(), name='subscription_delete'),
     path('login/', login_page, name='login'),  # Updated path for login
     path('signup/', signup, name='signup'),
+    path('call/', call, name='online'),
 ]

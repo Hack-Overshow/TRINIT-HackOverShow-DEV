@@ -19,7 +19,7 @@ def meeting_list(request):
 
 def call(request):
     form = MeetingCreateForm()
-    return render(request, 'project/templates/call.html', {'form': form})
+    return render(request, 'onlinemeet/call.html', {'form': form})
 
 def home(request):
     return render(request, 'index.html')
