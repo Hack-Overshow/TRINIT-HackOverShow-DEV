@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@latest/dist/tailwind.min.css" rel="stylesheet">
+    <title>Lesson Plans</title>
+    <style>
+        .box-shadow-purple-glow {
+            box-shadow: 0 0 5px 1px rgba(128, 0, 128, 0.3); 
+        }
+
+        .flashcards-section {
+            margin-top: 20px; 
+        }
+        
+        .modal {
+            display: none; 
+            position: fixed; 
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: white;
+            padding: 20px;
+            box-shadow: 0px 2px 5px rgba(0,0,0,0.3); 
+        } 
+
+        /* Lesson Plan Styles */
+        .lesson-plans-section {
+            max-width: 800px; 
+        }
+
+        .lesson-plan-card {
+            transition: all 0.2s ease-in-out; 
+            background-color: #646464; 
+            padding: 20px;   
+            border-radius: 5px;  
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15);
+        } 
+    </style>
+</head>
+<body class="bg-gray-800 text-gray-300 flex items-center justify-center min-h-screen">
+    <section class="lesson-plans-section container bg-gray-800 p-8 rounded-md shadow-md">
+        <h2 class="text-xl font-semibold mb-6 text-white">My Lesson Plans</h2>
+
+        <button class="bg-purple-500 text-white font-medium px-5 py-3 rounded hover:bg-purple-600 focus:outline-none mb-4 box-shadow-purple-glow">
+            + Create New Lesson Plan
+        </button>
+
+        <div class="lesson-plan-list">
+            </div>
+    </section>
+    <script>
+
+        const createNewPlanBtn = document.querySelector('.lesson-plans-section button'); 
+        createNewPlanBtn.addEventListener('click', () => {
+        });
+
+    
+    </script> 
+</body>
+</html>

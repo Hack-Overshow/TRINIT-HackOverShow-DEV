@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@latest/dist/tailwind.min.css" rel="stylesheet">
+    <title>Resources</title>
+    <style>
+        .resource-item {
+            background-color: #646464; 
+            border-radius: 5px;
+            padding: 15px;
+            margin-bottom: 10px; 
+            text-align: left; 
+            transition: all 0.2s ease-in-out; 
+        } 
+
+        .resource-item:hover {
+            background-color: #525252; 
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); 
+        }
+
+        .resource-title {
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+
+        .resource-type {
+            display: block;
+            color: #888;  
+            font-size: 0.9em;
+        }
+    </style>
+</head>
+<body class="bg-gray-800 text-gray-300 flex items-center justify-center min-h-screen">
+    <section class="resources-section container bg-gray-800 p-8 rounded-md shadow-md">
+        <h2 class="text-xl font-semibold mb-6 text-white">My Resources</h2>
+
+         <div class="upload-area mb-6">
+            <button class="bg-purple-500 text-white font-medium px-5 py-3 rounded hover:bg-purple-600 focus:outline-none">
+                + Upload Resource 
+            </button>
+        </div>
+
+        <div class="search-resources mb-4">
+            <input type="text" class="bg-gray-700 rounded-md px-3 py-2 w-full focus:outline-none" placeholder="Search resources">
+        </div>
+
+       <div class="resource-list"> 
+            <div class="resource-item">
+                <h3 class="resource-title">Spanish Vocabulary Worksheet</h3> 
+                <span class="resource-type">PDF</span>
+                <a href="#" class="bg-purple-500 text-white px-4 py-2 rounded hover:bg-purple-600">Download</a> 
+            </div>
+            </div> 
+    </section>
+    <script>
+    // ... (Your existing JavaScript) ...
+
+    fetch('/api/resources') // Adjust your backend endpoint
+        .then(response => response.json())
+        .then(resources => {
+            resources.forEach(resource => {
+                const resourceItem = document.createElement('div');
+                resourceItem.classList.add('resource-item');
+
+                const title = document.createElement('h3');
+                title.classList.add('resource-title');
+                title.textContent = resource.title;
+
+                const type = document.createElement('span');
+                type.classList.add('resource-type');
+                type.textContent = resource.type;
+
+                let actionElement;
+                if (resource.type === 'PDF') {
+                    actionElement = document.createElement('a');
+                    actionElement.href = resource.url;
+                    actionElement.textContent = 'Download';
+                    actionElement.classList.add('bg-purple-500', 'text-white', 'px-4', 'py-2', 'rounded', 'hover:bg-purple-600');
+                } else {  // Assuming 'LINK' or other external resource
+                    actionElement = document.createElement('a');
+                    actionElement.href = resource.url;
+                    actionElement.textContent = 'View Resource';
+                    actionElement.classList.add('bg-purple-500', 'text-white', 'px-4', 'py-2', 'rounded', 'hover:bg-purple-600');
+                    actionElement.target = '_blank'; // Open links in a new tab
+                }
+
+                resourceItem.appendChild(title);
+                resourceItem.appendChild(type);
+                resourceItem.appendChild(actionElement);
+
+                resourceList.appendChild(resourceItem);
+            });
+        })
+        .catch(error => console.error('Error fetching resources:', error)); 
+</script> 
+</body>
+</html>
+
+</body>
+</html>
